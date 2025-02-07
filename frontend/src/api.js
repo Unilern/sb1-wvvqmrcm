@@ -1,8 +1,12 @@
 // api.js
 import axios from "axios";
 
+// Use an environment variable for the backend URL.
+// When running locally, it will default to http://127.0.0.1:8000.
+const API_URL = process.env.REACT_APP_BACKEND_URL || "http://127.0.0.1:8000";
+
 const api = axios.create({
-  baseURL: "http://127.0.0.1:8000", // Update this URL if deployed
+  baseURL: API_URL,
 });
 
 export const generateCode = (prompt) => api.post("/generate_code", { prompt });
