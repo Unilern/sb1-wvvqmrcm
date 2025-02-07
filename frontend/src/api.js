@@ -1,8 +1,9 @@
 // api.js
 import axios from "axios";
 
-// Use an environment variable for the backend URL.
-// When running locally, it will default to http://127.0.0.1:8000.
+// Use an environment variable. When deployed, set REACT_APP_BACKEND_URL
+// in Vercel's dashboard to your public backend URL.
+// For local testing, it falls back to http://127.0.0.1:8000.
 const API_URL = process.env.REACT_APP_BACKEND_URL || "http://127.0.0.1:8000";
 
 const api = axios.create({
