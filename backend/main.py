@@ -8,7 +8,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 # LangChain & integrations
 from langchain.agents import initialize_agent, Tool
-from langchain.tools import PythonTool
+from langchain_experimental.tools import PythonREPLTool
 from slack_sdk import WebClient
 from github import Github
 from trello import TrelloClient
