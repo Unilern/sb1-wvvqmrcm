@@ -17,15 +17,17 @@ from transformers import AutoTokenizer, AutoModelForCausalLM
 # ---------------------------
 # Load Environment Variables
 # ---------------------------
-load_dotenv()
+import json
 
-QWEN_API_KEY = os.getenv("QWEN_API_KEY")
-SLACK_BOT_TOKEN = os.getenv("SLACK_BOT_TOKEN")
-TRELLO_API_KEY = os.getenv("TRELLO_API_KEY")
-TRELLO_API_SECRET = os.getenv("TRELLO_API_SECRET")
-TRELLO_TOKEN = os.getenv("TRELLO_TOKEN")
-TRELLO_TOKEN_SECRET = os.getenv("TRELLO_TOKEN_SECRET")
-GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
+with open('config.json') as f:
+    config = json.load(f)
+
+QWEN_API_KEY = config["QWEN_API_KEY"]
+SLACK_BOT_TOKEN = config["SLACK_BOT_TOKEN"]
+GITHUB_TOKEN = config["GITHUB_TOKEN"]
+TRELLO_API_KEY = config["TRELLO_API_KEY"]
+TRELLO_API_SECRET = config["TRELLO_API_SECRET"]
+TRELLO_TOKEN = config["TRELLO_TOKEN"]
 
 # ---------------------------
 # Initialize Integrations
